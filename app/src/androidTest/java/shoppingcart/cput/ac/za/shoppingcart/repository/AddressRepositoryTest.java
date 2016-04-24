@@ -16,8 +16,8 @@ import shoppingcart.cput.ac.za.shoppingcart.repository.impl.AddressRepositoryImp
  */
 public class AddressRepositoryTest extends AndroidTestCase {
     private static final String TAG = "ADDRESS TEST";
-     Long id;
-    AddressRepository repository;
+    private Long id;
+    private AddressRepository repository;
 
     @Override
     public void setUp() throws Exception {
