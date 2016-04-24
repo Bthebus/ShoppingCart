@@ -104,6 +104,7 @@ public class Item implements Serializable {
         public Builder copy(Item item){
             this.id = item.id;
             this.name = item.name;
+            this.imageLocation = item.imageLocation;
             this.description = item.description;
             this.price = item.price;
             this.quantity = item.quantity;
