@@ -34,14 +34,14 @@ public class AddressRepositoryImpl extends SQLiteOpenHelper implements AddressRe
     public static final String COLUMN_POSTALCODE = "postalCode";
 
     //Database creation sql statement
-    private static final String DATABASE_CREATE = "CREATE TABLE"
+    private static final String DATABASE_CREATE = "CREATE TABLE "
             + TABLE_NAME + "("
-            + COLUMN_ID + "INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + COLUMN_HOMENUMBER + "TEXT NOT NULL, "
-            + COLUMN_STREETNAME + "TEXT NOT NULL, "
-            + COLUMN_CITY + "TEXT NOT NULL, "
-            + COLUMN_PROVINCE + "TEXT NOT NULL, "
-            + COLUMN_POSTALCODE + "TEXT NOT NULL );";
+            + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + COLUMN_HOMENUMBER + " TEXT NOT NULL, "
+            + COLUMN_STREETNAME + " TEXT NOT NULL, "
+            + COLUMN_CITY + " TEXT NOT NULL, "
+            + COLUMN_PROVINCE + " TEXT NOT NULL, "
+            + COLUMN_POSTALCODE + " TEXT NOT NULL );";
 
     public AddressRepositoryImpl(Context context) {
         super(context, DBConstants.DATABASE_NAME, null, DBConstants.DATABASE_VERSION);
