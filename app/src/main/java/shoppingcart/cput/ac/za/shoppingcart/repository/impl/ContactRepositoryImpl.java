@@ -87,7 +87,7 @@ public class ContactRepositoryImpl extends SQLiteOpenHelper implements ContactRe
         values.put(COLUMN_TELEPHONE, entity.getTelephone());
         values.put(COLUMN_CELLPHONE, entity.getCellPhone());
 
-        long id  = db.insertOrThrow(TABLE_NAME, null,values);
+        long id  = db.insert(TABLE_NAME, null,values);
         Contact insertedEntity = new Contact.Builder()
                 .copy(entity)
                 .id(new Long(id))
