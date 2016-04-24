@@ -25,6 +25,12 @@ public class AddressRepositoryTest extends AndroidTestCase {
         repository = new AddressRepositoryImpl(this.getContext());
     }
 
+    @Override
+    public void tearDown()throws Exception
+    {
+        repository = null;
+    }
+
     public void testCreateReadUpdateDelete() throws Exception {
 
         //CREATE
