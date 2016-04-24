@@ -92,7 +92,6 @@ public class ContactRepositoryImpl extends SQLiteOpenHelper implements ContactRe
                 .copy(entity)
                 .id(new Long(id))
                 .build();
-
         return  insertedEntity;
     }
 
@@ -146,7 +145,6 @@ public class ContactRepositoryImpl extends SQLiteOpenHelper implements ContactRe
     public int deleteAll() {
         open();
         int rowsDeleted = db.delete(TABLE_NAME, null, null);
-        close();
         return rowsDeleted;
     }
 
