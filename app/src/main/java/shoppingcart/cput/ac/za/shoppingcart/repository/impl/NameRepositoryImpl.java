@@ -23,7 +23,7 @@ import shoppingcart.cput.ac.za.shoppingcart.repository.NameRepository;
  */
 public class NameRepositoryImpl extends SQLiteOpenHelper implements NameRepository {
 
-    public static final String TABLE_NAME = "Name";
+    public static final String TABLE_NAME = "name";
     private SQLiteDatabase db;
 
     public static final String COLUMN_ID = "id";
