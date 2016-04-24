@@ -31,7 +31,7 @@ public class AddressRepositoryTest extends AndroidTestCase {
         repository = null;
     }
 
-    public void testCreateReadUpdateDelete() throws Exception {
+    public void testCRUD() throws Exception {
 
         //CREATE
         Address createEntity = new Address.Builder().homeNumber("7").streetName("Hoek street").city("Cape town").province("Western Cape").postalCode("7780").build();
