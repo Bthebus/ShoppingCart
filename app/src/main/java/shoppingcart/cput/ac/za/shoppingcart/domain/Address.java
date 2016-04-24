@@ -10,6 +10,7 @@ import java.io.Serializable;
  */
 public class Address implements IAddress, Serializable {
 
+    private Long Id;
     private String homeNumber;
     private String streetName;
     private String city;
@@ -20,11 +21,17 @@ public class Address implements IAddress, Serializable {
     }
 
     public Address(Builder builder){
+        this.Id = builder.Id;
         this.homeNumber = builder.homeNumber;
         this.streetName = builder.streetName;
         this.city = builder.city;
         this.province = builder.province;
         this.postalCode = builder.postalCode;
+    }
+
+    public Long getId()
+    {
+        return Id;
     }
 
     @Override
@@ -56,6 +63,7 @@ public class Address implements IAddress, Serializable {
 
     public static class Builder{
 
+        private Long Id;
         private String homeNumber;
         private String streetName;
         private String city;
@@ -70,6 +78,12 @@ public class Address implements IAddress, Serializable {
             this.city = city;
             this.province = province;
             this.postalCode = postalCode;
+        }
+
+        public Builder Id(Long Id)
+        {
+            this.Id = Id;
+            return this;
         }
 
         public Builder homeNumber(String homeNumber){
@@ -98,6 +112,7 @@ public class Address implements IAddress, Serializable {
         }
 
         public Builder copy(Address address){
+            this.Id = address.Id;
             this.homeNumber = address.homeNumber;
             this.streetName = address.streetName;
             this.city = address.city;
