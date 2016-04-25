@@ -12,6 +12,8 @@ import java.io.Serializable;
  */
 public class User implements Serializable {
 
+    private Long id;
+
     @Size(min=5, max = 10)
     private String username;
 
@@ -22,8 +24,14 @@ public class User implements Serializable {
     }
 
     public User(Builder builder){
+        this.id = builder.id;
         this.username = builder.username;
         this.password = builder.password;
+    }
+
+    public Long getId()
+    {
+        return id;
     }
 
     public String getUsername() {
@@ -36,6 +44,8 @@ public class User implements Serializable {
 
     //builder starts here
     public static class Builder{
+
+        private Long id;
         private String username;
         private String password;
 
@@ -46,6 +56,12 @@ public class User implements Serializable {
         {
             this.username = username;
             this.password = password;
+        }
+
+        public Builder id(Long id)
+        {
+            this.id = id;
+            return this;
         }
 
         public Builder username(String username){
@@ -59,6 +75,7 @@ public class User implements Serializable {
         }
 
         public Builder copy(User user){
+            this.id = user.id;
             this.username = user.username;
             this.password = user.password;
             return this;
