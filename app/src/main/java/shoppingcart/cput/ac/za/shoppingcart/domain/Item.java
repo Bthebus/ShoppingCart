@@ -20,6 +20,7 @@ public class Item implements Serializable {
     private Item(){}
 
     public Item(Builder builder){
+        this.id = builder.id;
         this.name = builder.name;
         this.imageLocation = builder.imageLocation;
         this.description = builder.description;
