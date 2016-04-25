@@ -8,5 +8,5 @@ package shoppingcart.cput.ac.za.shoppingcart.conf.databases;
  */
 public class DBConstants {
     public static final String DATABASE_NAME="shoppingCart";
-    public static final int DATABASE_VERSION=1;
+    public static final int DATABASE_VERSION=4;
 }
