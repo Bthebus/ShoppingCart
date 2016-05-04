@@ -42,7 +42,6 @@ public class User implements Serializable {
     //builder starts here
     public static class Builder{
 
-        private Long id;
         private String username;
         private String password;
 
@@ -53,12 +52,6 @@ public class User implements Serializable {
         {
             this.username = username;
             this.password = password;
-        }
-
-        public Builder id(Long id)
-        {
-            this.id = id;
-            return this;
         }
 
         public Builder username(String username){
