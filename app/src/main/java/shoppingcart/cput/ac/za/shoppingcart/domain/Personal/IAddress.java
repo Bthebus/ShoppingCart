@@ -1,4 +1,4 @@
-package shoppingcart.cput.ac.za.shoppingcart.domain;
+package shoppingcart.cput.ac.za.shoppingcart.domain.Personal;
 
 /**
  * Author       : Braedy Thebus

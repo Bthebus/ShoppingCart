@@ -1,8 +1,8 @@
-package shoppingcart.cput.ac.za.shoppingcart.domain.Personal;
+package shoppingcart.cput.ac.za.shoppingcart.domain.Personal.Impl;
 
 import java.io.Serializable;
 
-import shoppingcart.cput.ac.za.shoppingcart.domain.IAddress;
+import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.IAddress;
 
 /**
  *Author       : Braedy Thebus

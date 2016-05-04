@@ -2,9 +2,9 @@ package shoppingcart.cput.ac.za.shoppingcart.factories;
 
 import java.util.List;
 import shoppingcart.cput.ac.za.shoppingcart.domain.*;
-import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.Address;
-import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.Contact;
-import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.Name;
+import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.Impl.Address;
+import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.Impl.Contact;
+import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.Impl.Name;
 
 /**
  * Author       : Braedy Thebus

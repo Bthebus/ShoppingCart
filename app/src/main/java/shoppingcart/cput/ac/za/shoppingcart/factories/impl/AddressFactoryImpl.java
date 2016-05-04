@@ -1,6 +1,6 @@
 package shoppingcart.cput.ac.za.shoppingcart.factories.impl;
 
-import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.Address;
+import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.Impl.Address;
 import shoppingcart.cput.ac.za.shoppingcart.factories.AddressFactory;
 
 /**
