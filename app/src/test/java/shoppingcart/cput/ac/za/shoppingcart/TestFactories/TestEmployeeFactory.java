@@ -6,7 +6,7 @@ import org.junit.*;
 
 import shoppingcart.cput.ac.za.shoppingcart.domain.Employee;
 import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.Impl.Name;
-import shoppingcart.cput.ac.za.shoppingcart.domain.User;
+import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.User;
 import shoppingcart.cput.ac.za.shoppingcart.factories.EmployeeFactory;
 import shoppingcart.cput.ac.za.shoppingcart.factories.NameFactory;
 import shoppingcart.cput.ac.za.shoppingcart.factories.UserFactory;

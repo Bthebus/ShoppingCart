@@ -6,6 +6,7 @@ import java.util.List;
 import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.Impl.Address;
 import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.Impl.Contact;
 import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.Impl.Name;
+import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.User;
 
 /**
  * Author       : Braedy Thebus

@@ -1,6 +1,6 @@
 package shoppingcart.cput.ac.za.shoppingcart.repository;
 
-import shoppingcart.cput.ac.za.shoppingcart.domain.User;
+import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.User;
 
 /**
  * Author       : Braedy Thebus

@@ -1,4 +1,4 @@
-package shoppingcart.cput.ac.za.shoppingcart.domain;
+package shoppingcart.cput.ac.za.shoppingcart.domain.Personal;
 
 import android.support.annotation.Size;
 
