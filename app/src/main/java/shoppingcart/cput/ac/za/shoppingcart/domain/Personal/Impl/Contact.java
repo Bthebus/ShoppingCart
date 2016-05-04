@@ -12,7 +12,6 @@ import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.IContact;
  */
 public class Contact implements IContact, Serializable {
 
-    private Long id;
     private String email;
     private String telephone;
     private String cellphone;
@@ -20,16 +19,11 @@ public class Contact implements IContact, Serializable {
     private Contact(){}
 
     public Contact(Builder builder){
-        id = builder.id;
         email = builder.email;
         cellphone = builder.cellphone;
         telephone = builder.telephone;
     }
 
-    public Long getId()
-    {
-        return id;
-    }
 
     @Override
     public String getEmail() {
@@ -49,7 +43,6 @@ public class Contact implements IContact, Serializable {
     //Builder starts here
     public static class Builder {
 
-        private Long id;
         private String email;
         private String telephone;
         private String cellphone;
@@ -63,10 +56,7 @@ public class Contact implements IContact, Serializable {
             this.cellphone = cellphone;
         }
 
-        public Builder id(Long id){
-            this.id = id;
-            return this;
-        }
+
 
         public Builder email(String email) {
             this.email = email;
@@ -84,7 +74,6 @@ public class Contact implements IContact, Serializable {
         }
 
         public Builder copy(Contact contact) {
-            this.id = contact.id;
             this.email = contact.email;
             this.cellphone = contact.cellphone;
             this.telephone = contact.telephone;
