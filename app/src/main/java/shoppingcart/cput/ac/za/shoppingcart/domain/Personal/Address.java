@@ -12,7 +12,7 @@ import shoppingcart.cput.ac.za.shoppingcart.domain.IAddress;
  */
 public class Address implements IAddress, Serializable {
 
-    private Long id;
+
     private String homeNumber;
     private String streetName;
     private String city;
@@ -23,17 +23,11 @@ public class Address implements IAddress, Serializable {
     }
 
     public Address(Builder builder){
-        this.id = builder.id;
         this.homeNumber = builder.homeNumber;
         this.streetName = builder.streetName;
         this.city = builder.city;
         this.province = builder.province;
         this.postalCode = builder.postalCode;
-    }
-
-    public Long getId()
-    {
-        return id;
     }
 
     @Override
@@ -65,7 +59,7 @@ public class Address implements IAddress, Serializable {
 
     public static class Builder{
 
-        private Long id;
+
         private String homeNumber;
         private String streetName;
         private String city;
@@ -80,12 +74,6 @@ public class Address implements IAddress, Serializable {
             this.city = city;
             this.province = province;
             this.postalCode = postalCode;
-        }
-
-        public Builder Id(Long id)
-        {
-            this.id = id;
-            return this;
         }
 
         public Builder homeNumber(String homeNumber){
@@ -114,7 +102,6 @@ public class Address implements IAddress, Serializable {
         }
 
         public Builder copy(Address address){
-            this.id = address.id;
             this.homeNumber = address.homeNumber;
             this.streetName = address.streetName;
             this.city = address.city;
