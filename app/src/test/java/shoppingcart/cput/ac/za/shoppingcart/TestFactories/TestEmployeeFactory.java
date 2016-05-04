@@ -5,7 +5,7 @@ import junit.framework.TestCase;
 import org.junit.*;
 
 import shoppingcart.cput.ac.za.shoppingcart.domain.Employee;
-import shoppingcart.cput.ac.za.shoppingcart.domain.Name;
+import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.Name;
 import shoppingcart.cput.ac.za.shoppingcart.domain.User;
 import shoppingcart.cput.ac.za.shoppingcart.factories.EmployeeFactory;
 import shoppingcart.cput.ac.za.shoppingcart.factories.NameFactory;

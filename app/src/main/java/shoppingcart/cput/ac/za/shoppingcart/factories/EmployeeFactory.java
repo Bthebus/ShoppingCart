@@ -1,6 +1,7 @@
 package shoppingcart.cput.ac.za.shoppingcart.factories;
 
 import shoppingcart.cput.ac.za.shoppingcart.domain.*;
+import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.Name;
 
 /**
  * Author       : Braedy Thebus
@@ -9,5 +10,5 @@ import shoppingcart.cput.ac.za.shoppingcart.domain.*;
  * Date created : 2016-04-17
  */
 public interface EmployeeFactory {
-    Employee createEmployee( Name name, User user);
+    Employee createEmployee(Name name, User user);
 }

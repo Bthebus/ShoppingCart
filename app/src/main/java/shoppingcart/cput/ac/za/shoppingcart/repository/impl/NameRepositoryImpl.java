@@ -12,7 +12,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import shoppingcart.cput.ac.za.shoppingcart.conf.databases.DBConstants;
-import shoppingcart.cput.ac.za.shoppingcart.domain.Name;
+import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.Name;
 import shoppingcart.cput.ac.za.shoppingcart.repository.NameRepository;
 
 /**

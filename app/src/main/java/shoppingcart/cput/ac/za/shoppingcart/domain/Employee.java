@@ -2,6 +2,8 @@ package shoppingcart.cput.ac.za.shoppingcart.domain;
 
 import java.io.Serializable;
 
+import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.Name;
+
 /**
  * Author       : Braedy Thebus
  * Stud num     : 213039168

@@ -4,7 +4,7 @@ import junit.framework.TestCase;
 
 import org.junit.*;
 
-import shoppingcart.cput.ac.za.shoppingcart.domain.Contact;
+import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.Contact;
 import shoppingcart.cput.ac.za.shoppingcart.factories.ContactFactory;
 import shoppingcart.cput.ac.za.shoppingcart.factories.impl.ContactFactoryImpl;
 

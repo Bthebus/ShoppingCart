@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import shoppingcart.cput.ac.za.shoppingcart.domain.Address;
-import shoppingcart.cput.ac.za.shoppingcart.domain.Contact;
+import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.Address;
+import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.Contact;
 import shoppingcart.cput.ac.za.shoppingcart.domain.Customer;
 import shoppingcart.cput.ac.za.shoppingcart.domain.Item;
-import shoppingcart.cput.ac.za.shoppingcart.domain.Name;
+import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.Name;
 import shoppingcart.cput.ac.za.shoppingcart.domain.Orders;
 import shoppingcart.cput.ac.za.shoppingcart.domain.User;
 import shoppingcart.cput.ac.za.shoppingcart.factories.AddressFactory;

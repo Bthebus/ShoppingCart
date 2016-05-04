@@ -4,7 +4,7 @@ import android.test.AndroidTestCase;
 
 import java.util.Set;
 
-import shoppingcart.cput.ac.za.shoppingcart.domain.Contact;
+import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.Contact;
 import shoppingcart.cput.ac.za.shoppingcart.repository.impl.ContactRepositoryImpl;
 
 /**
