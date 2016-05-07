@@ -19,7 +19,6 @@ public class EmployeeRepositoryTest extends AndroidTestCase{
     private static final String TAG = "EMPLOYEE TEST";
     private Long id;
     private EmployeeRepository repository;
-    private NameRepository nameRepository;
     private Name name;
     private User user;
      Employee createEntity;
