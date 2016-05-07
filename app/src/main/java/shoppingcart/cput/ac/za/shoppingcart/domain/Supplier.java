@@ -14,6 +14,7 @@ public class Supplier implements Serializable {
     private Long id;
     private String supplierName;
     private List<Item> item;
+
     private Supplier(){}
 
     public Supplier(Builder builder){
