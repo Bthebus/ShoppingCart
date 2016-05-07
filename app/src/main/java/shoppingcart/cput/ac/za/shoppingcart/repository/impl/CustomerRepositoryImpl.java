@@ -22,6 +22,12 @@ import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.Impl.Address;
 import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.Impl.Contact;
 import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.Impl.Name;
 import shoppingcart.cput.ac.za.shoppingcart.domain.Personal.User;
+import shoppingcart.cput.ac.za.shoppingcart.factories.impl.AddressFactoryImpl;
+import shoppingcart.cput.ac.za.shoppingcart.factories.impl.ContactFactoryImpl;
+import shoppingcart.cput.ac.za.shoppingcart.factories.impl.ItemFactoryImpl;
+import shoppingcart.cput.ac.za.shoppingcart.factories.impl.NameFactoryImpl;
+import shoppingcart.cput.ac.za.shoppingcart.factories.impl.OrdersFactoryImpl;
+import shoppingcart.cput.ac.za.shoppingcart.factories.impl.UserFactoryImpl;
 import shoppingcart.cput.ac.za.shoppingcart.repository.CustomerRepository;
 
 /**
@@ -72,12 +78,12 @@ public class CustomerRepositoryImpl extends SQLiteOpenHelper implements Customer
 
 
     //database create sql
-    private static final String DATABASE_CREATE = " CREATE TABLE"
-            +TABLE_NAME + "("
+    private static final String DATABASE_CREATE = " CREATE TABLE "
+            +TABLE_NAME + " ( "
             +COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             +COLUMN_NAME + " TEXT NOT NULL, "
             +COLUMN_MIDDLENAME+ " TEXT, "
-            +COLUMN_SURNAME + " TEXT NOT NULL "
+            +COLUMN_SURNAME + " TEXT NOT NULL, "
             +COLUMN_EMAIL + " TEXT NOT NULL, "
             +COLUMN_TELEPHONE + " TEXT, "
             +COLUMN_CELLPHONE + " TEXT NOT NULL, "
@@ -86,7 +92,7 @@ public class CustomerRepositoryImpl extends SQLiteOpenHelper implements Customer
             +COLUMN_CITY + " TEXT NOT NULL, "
             +COLUMN_PROVINCE + " TEXT NOT NULL, "
             +COLUMN_POSTALCODE + " TEXT NOT NULL, "
-            +COLUMN_USERNAME + " TEXT NOT NULL UNIQUE, "
+            +COLUMN_USERNAME + " TEXT NOT NULL, "
             +COLUMN_PASSWORD + " TEXT NOT NULL, "
             +COLUMN_ORDERS + " TEXT );";
 
@@ -105,6 +111,7 @@ public class CustomerRepositoryImpl extends SQLiteOpenHelper implements Customer
 
     @Override
     public Customer findById(Long id) {
+
        SQLiteDatabase db = this.getReadableDatabase();
 
        Cursor cursor = db.query(
@@ -124,66 +131,121 @@ public class CustomerRepositoryImpl extends SQLiteOpenHelper implements Customer
                        COLUMN_POSTALCODE,
                        COLUMN_USERNAME,
                        COLUMN_PASSWORD,
-                       COLUMN_ORDERS
-               },
+                       COLUMN_ORDERS},
                COLUMN_ID + " =? ",
                new String[]{String.valueOf(id)},
                null,
                null,
                null,
-               null
-       );
+               null);
 
         if(cursor.moveToFirst())
         {
             //Item object for item List for Orders object
-            Item item = new Item.Builder()
+            /*Item item = new Item.Builder()
                     .name(cursor.getString(cursor.getColumnIndex(COLUMN_ITEM_NAME)))
                     .imageLocation(cursor.getString(cursor.getColumnIndex(COLUMN_IMAGELOCATION)))
                     .description(cursor.getString(cursor.getColumnIndex(COLUMN_DESCRIPTION)))
                     .price(cursor.getDouble(cursor.getColumnIndex(COLUMN_PRICE)))
-                    .quantity(cursor.getInt(cursor.getColumnIndex(COLUMN_ITEM_NAME)))
-                    .build();
+                    .quantity(cursor.getInt(cursor.getColumnIndex(COLUMN_QUANTITY)))
+                    .build();*/
 
-            List<Item> items = new ArrayList<Item>();
+            Item item = ItemFactoryImpl
+                    .getInstance()
+                    .createItem(
+                            cursor.getString(cursor.getColumnIndex(COLUMN_ITEM_NAME)),
+                            cursor.getString(cursor.getColumnIndex(COLUMN_IMAGELOCATION)),
+                            cursor.getString(cursor.getColumnIndex(COLUMN_DESCRIPTION)),
+                            cursor.getDouble(cursor.getColumnIndex(COLUMN_PRICE)),
+                            cursor.getInt(cursor.getColumnIndex(COLUMN_ITEM_NAME))
+
+                    );
+
+
+            List<Item> items = new ArrayList<>();
             items.add(item);
 
             //Orders object for orders List
-            Orders order = new Orders.Builder()
+/*            Orders order = new Orders.Builder()
                     .orderDate(String.valueOf(AppUtil.date(cursor.getString(cursor.getColumnIndex(COLUMN_DATE)))))
                     .item(items)
                     .build();
+                    */
+
+            Orders order = OrdersFactoryImpl
+                    .getInstance()
+                    .createOrders(
+                            String.valueOf(AppUtil.date(cursor.getString(cursor.getColumnIndex(COLUMN_DATE)))),
+                            items
+                    );
+
 
             List<Orders> orders = new ArrayList<Orders>();
             orders.add(order);
 
             //Name object
-            Name name = new Name.Builder()
+/*            Name name = new Name.Builder()
                     .name(cursor.getString(cursor.getColumnIndex(COLUMN_NAME)))
                     .middleName(cursor.getString(cursor.getColumnIndex(COLUMN_MIDDLENAME)))
                     .surname(cursor.getString(cursor.getColumnIndex(COLUMN_SURNAME)))
                     .build();
+                    */
+            Name name = NameFactoryImpl
+                    .getInstance()
+                    .createName(
+                            cursor.getString(cursor.getColumnIndex(COLUMN_NAME)),
+                            cursor.getString(cursor.getColumnIndex(COLUMN_MIDDLENAME)),
+                            cursor.getString(cursor.getColumnIndex(COLUMN_SURNAME))
+                    );
+
 
             //Contact object
-            Contact contact = new Contact.Builder()
+/*            Contact contact = new Contact.Builder()
                     .email(cursor.getString(cursor.getColumnIndex(COLUMN_EMAIL)))
                     .telephone(cursor.getString(cursor.getColumnIndex(COLUMN_TELEPHONE)))
                     .cellphone(cursor.getString(cursor.getColumnIndex(COLUMN_CELLPHONE)))
-                    .build();
+                    .build();*/
+
+            Contact contact = ContactFactoryImpl
+                    .getInstance()
+                    .createContact(
+                            cursor.getString(cursor.getColumnIndex(COLUMN_EMAIL)),
+                            cursor.getString(cursor.getColumnIndex(COLUMN_TELEPHONE)),
+                            cursor.getString(cursor.getColumnIndex(COLUMN_CELLPHONE))
+                    );
 
             //Address object
-            Address address = new Address.Builder()
+/*            Address address = new Address.Builder()
                     .homeNumber(cursor.getString(cursor.getColumnIndex(COLUMN_HOMENUMBER)))
                     .streetName(cursor.getString(cursor.getColumnIndex(COLUMN_STREETNAME)))
                     .city(cursor.getString(cursor.getColumnIndex(COLUMN_CITY)))
                     .province(cursor.getString(cursor.getColumnIndex(COLUMN_PROVINCE)))
                     .postalCode(cursor.getString(cursor.getColumnIndex(COLUMN_POSTALCODE)))
-                    .build();
+                    .build();*/
+
+            Address address = AddressFactoryImpl
+                    .getInstance()
+                    .createAddress(
+                            cursor.getString(cursor.getColumnIndex(COLUMN_HOMENUMBER)),
+                            cursor.getString(cursor.getColumnIndex(COLUMN_STREETNAME)),
+                            cursor.getString(cursor.getColumnIndex(COLUMN_CITY)),
+                            cursor.getString(cursor.getColumnIndex(COLUMN_PROVINCE)),
+                            cursor.getString(cursor.getColumnIndex(COLUMN_POSTALCODE))
+                    );
+
             //User object
-            User user = new User.Builder()
+/*            User user = new User.Builder()
                     .username(cursor.getString(cursor.getColumnIndex(COLUMN_USERNAME)))
                     .password(cursor.getString(cursor.getColumnIndex(COLUMN_PASSWORD)))
                     .build();
+*/
+
+            User user = UserFactoryImpl
+                    .getInstance()
+                    .createUser(
+                            cursor.getString(cursor.getColumnIndex(COLUMN_USERNAME)),
+                            cursor.getString(cursor.getColumnIndex(COLUMN_PASSWORD))
+                    );
 
             //Customer object
             final Customer customer = new Customer.Builder()
@@ -224,7 +286,7 @@ public class CustomerRepositoryImpl extends SQLiteOpenHelper implements Customer
         values.put(COLUMN_USERNAME, entity.getUser().getUsername());
         values.put(COLUMN_PASSWORD, entity.getUser().getPassword());
 
-        values.put(COLUMN_ORDERS, entity.getOrders().toString());
+        values.put(COLUMN_ORDERS, entity.getOrders().toArray().toString());
 
         long id = db.insertOrThrow(TABLE_NAME, null, values);
 
@@ -290,9 +352,12 @@ public class CustomerRepositoryImpl extends SQLiteOpenHelper implements Customer
     public Set<Customer> findAll() {
         SQLiteDatabase db = this.getReadableDatabase();
         Set<Customer> customers = new HashSet<>();
+        List<Item> items = new ArrayList<Item>();
+        List<Orders> orders = new ArrayList<Orders>();
 
         open();
-        Cursor cursor = db.query(TABLE_NAME, null, null, null, null, null, null);
+        Cursor cursor;
+        cursor = db.query(TABLE_NAME, null, null, null, null, null, null);
 
         if(cursor.moveToFirst())
         {
@@ -303,10 +368,10 @@ public class CustomerRepositoryImpl extends SQLiteOpenHelper implements Customer
                      .imageLocation(cursor.getString(cursor.getColumnIndex(COLUMN_IMAGELOCATION)))
                      .description(cursor.getString(cursor.getColumnIndex(COLUMN_DESCRIPTION)))
                      .price(cursor.getDouble(cursor.getColumnIndex(COLUMN_PRICE)))
-                     .quantity(cursor.getInt(cursor.getColumnIndex(COLUMN_ITEM_NAME)))
+                     .quantity(cursor.getInt(cursor.getColumnIndex(COLUMN_QUANTITY)))
                      .build();
 
-             List<Item> items = new ArrayList<Item>();
+
              items.add(item);
 
              //Orders object for orders List
@@ -315,7 +380,7 @@ public class CustomerRepositoryImpl extends SQLiteOpenHelper implements Customer
                      .item(items)
                      .build();
 
-             List<Orders> orders = new ArrayList<Orders>();
+
              orders.add(order);
 
              //Name object
