@@ -21,7 +21,7 @@ public class EmployeeRepositoryTest extends AndroidTestCase{
     private EmployeeRepository repository;
     private Name name;
     private User user;
-     Employee createEntity;
+    private Employee createEntity;
 
     @Override
     public void setUp() throws Exception
