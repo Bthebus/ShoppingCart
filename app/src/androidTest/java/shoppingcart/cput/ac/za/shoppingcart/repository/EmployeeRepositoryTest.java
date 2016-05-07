@@ -28,7 +28,6 @@ public class EmployeeRepositoryTest extends AndroidTestCase{
     {
         super.setUp();
         repository = new EmployeeRepositoryImpl(this.getContext());
-       // nameRepository = new NameRepositoryImpl(this.getContext());
         name = new Name.Builder()
                 .name("Braedy")
                 .middleName("Middle")

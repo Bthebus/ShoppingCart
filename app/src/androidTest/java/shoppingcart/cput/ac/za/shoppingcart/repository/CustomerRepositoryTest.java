@@ -23,22 +23,21 @@ import shoppingcart.cput.ac.za.shoppingcart.repository.impl.CustomerRepositoryIm
  * Date created : 2016-05-04
  */
 public class CustomerRepositoryTest extends AndroidTestCase {
+
     private static final String TAG = "CUSTOMER TEST";
+
     private Long id;
     private CustomerRepository repository;
-
     private Name name;
     private Contact contact;
     private Address address;
     private User user;
-
     private Orders order;
     private Item item;
-
     private List<Orders> orders;
     private List<Item> items;
-
     private Date date;
+    private Customer createEntity;
 
     @Override
     public void setUp() throws Exception
@@ -88,6 +87,14 @@ public class CustomerRepositoryTest extends AndroidTestCase {
                 .item(items)
                 .build();
         orders.add(order);
+
+        createEntity = new Customer.Builder()
+                .name(name)
+                .contactInformation(contact)
+                .address(address)
+                .user(user)
+                .order(orders)
+                .build();
     }
 
     @Override
@@ -103,19 +110,13 @@ public class CustomerRepositoryTest extends AndroidTestCase {
         item = null;
         items =null;
         date = null;
+        createEntity = null;
     }
 
     public void testCRUD() throws Exception
     {
 
         //CREATE
-        Customer createEntity = new Customer.Builder()
-                .name(name)
-                .contactInformation(contact)
-                .address(address)
-                .user(user)
-                .order(orders)
-                .build();
         Customer insertedEntity = repository.save(createEntity);
         id = insertedEntity.getId();
         assertNotNull(TAG + "CREATE", insertedEntity);
@@ -129,8 +130,24 @@ public class CustomerRepositoryTest extends AndroidTestCase {
 
 
         //READ ENTITY
+        Customer entity = repository.findById(id);
+        assertNotNull(TAG+ " READ ENTITY ", entity);
 
+        //UPDATE ENTITY
+        Customer updateEntity = new Customer.Builder()
+                .copy(entity)
+                .id(id)
+                .address(new Address.Builder().copy(address).province("Eastern Cape").build())
+                .build();
 
+        repository.update(updateEntity);
+
+        Customer newEntity = repository.findById(id);
+        assertEquals(TAG+" UPDATE ENTITY ", "Eastern Cape",newEntity.getAddress().getProvince());
+
+        //DELETE ENTITY
+        repository.delete(updateEntity);
+        Customer deletedEntity = repository.findById(id);
+        assertNull(TAG + " DELETE ENTITY ", deletedEntity);
     }
-
 }
