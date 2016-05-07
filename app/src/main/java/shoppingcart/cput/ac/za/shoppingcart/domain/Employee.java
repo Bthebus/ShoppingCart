@@ -21,6 +21,7 @@ public class Employee implements Serializable {
     }
 
     public Employee(Builder builder){
+        this.id = builder.id;
         this.name = builder.name;
         this.user = builder.user;
     }
