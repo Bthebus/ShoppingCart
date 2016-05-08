@@ -11,6 +11,6 @@ import shoppingcart.cput.ac.za.shoppingcart.domain.Employee;
  * Date created : 2016-05-08
  */
 public interface EmployeeService {
-    void addCustomer(Context context, Employee employee);
-    void updateCustomer(Context context, Employee employee);
+    void addEmployee(Context context, Employee employee);
+    void updateEmployee(Context context, Employee employee);
 }
