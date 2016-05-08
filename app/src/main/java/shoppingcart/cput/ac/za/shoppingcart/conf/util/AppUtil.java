@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 
 /**
@@ -23,6 +24,10 @@ public class AppUtil {
         return new OkHttpClient();
     }
 
+    public static MediaType getJSONMediaType() {
+        return MediaType.parse("application/json; charset=utf-8");
+    }
+
     public static Date date(String date)
     {
         SimpleDateFormat format = new SimpleDateFormat("dd-MMM-yyyy");
@@ -35,4 +40,6 @@ public class AppUtil {
         }
         return value;
     }
+
+
 }
