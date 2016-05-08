@@ -72,7 +72,7 @@ public class SupplierRepositoryImpl extends SQLiteOpenHelper implements Supplier
                 List<Item> items = new ArrayList<Item>();
                 items.add(null);
                 Supplier supplier = new Supplier.Builder()
-                        .supplierName("TheChineseShop")
+                        .supplierName(cursor.getString(cursor.getColumnIndex(COLUMN_SUPPLIER_NAME)))
                         .item(items)
                         .build();
 
@@ -96,6 +96,7 @@ public class SupplierRepositoryImpl extends SQLiteOpenHelper implements Supplier
         long id = db.insertOrThrow(TABLE_NAME, null, values);
         Supplier insertedEntity = new Supplier.Builder()
                 .copy(entity)
+                .id(new Long(id))
                 .build();
         return  insertedEntity;
     }
