@@ -49,6 +49,12 @@ public class Supplier implements Serializable {
             this.item = item;
         }
 
+        public Builder id(Long id)
+        {
+            this.id = id;
+            return this;
+        }
+
         public Builder supplierName(String supplierName){
             this.supplierName = supplierName;
             return this;
