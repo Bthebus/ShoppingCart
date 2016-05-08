@@ -3,6 +3,7 @@ package shoppingcart.cput.ac.za.shoppingcart.restapi.api;
 import java.io.IOException;
 import java.util.Set;
 
+import shoppingcart.cput.ac.za.shoppingcart.domain.OrderLine;
 import shoppingcart.cput.ac.za.shoppingcart.restapi.resources.OrderLineResource;
 
 /**
@@ -13,4 +14,6 @@ import shoppingcart.cput.ac.za.shoppingcart.restapi.resources.OrderLineResource;
  */
 public interface OrderLineAPI {
     Set<OrderLineResource> getOrderLine() throws IOException;
+    OrderLine createOrderLine(OrderLine orderLine) throws IOException;
+    OrderLine updateOrderLine(OrderLine orderLine) throws IOException;
 }

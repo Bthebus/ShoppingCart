@@ -3,6 +3,7 @@ package shoppingcart.cput.ac.za.shoppingcart.restapi.api;
 import java.io.IOException;
 import java.util.Set;
 
+import shoppingcart.cput.ac.za.shoppingcart.domain.Customer;
 import shoppingcart.cput.ac.za.shoppingcart.restapi.resources.CustomerResource;
 
 /**
@@ -13,4 +14,6 @@ import shoppingcart.cput.ac.za.shoppingcart.restapi.resources.CustomerResource;
  */
 public interface CustomerAPI {
     Set<CustomerResource> getCustomer() throws IOException;
+    Customer createCustomer(Customer customer) throws IOException;
+    Customer updateCustomer(Customer customer) throws IOException;
 }

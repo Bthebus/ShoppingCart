@@ -3,6 +3,7 @@ package shoppingcart.cput.ac.za.shoppingcart.restapi.api;
 import java.io.IOException;
 import java.util.Set;
 
+import shoppingcart.cput.ac.za.shoppingcart.domain.Employee;
 import shoppingcart.cput.ac.za.shoppingcart.restapi.resources.EmployeeResource;
 
 /**
@@ -13,4 +14,6 @@ import shoppingcart.cput.ac.za.shoppingcart.restapi.resources.EmployeeResource;
  */
 public interface EmployeeAPI {
     Set<EmployeeResource> getEmployee() throws IOException;
+    Employee createEmployee(Employee employee) throws IOException;
+    Employee updateEmployee(Employee employee) throws IOException;
 }
